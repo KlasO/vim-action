@@ -6,6 +6,9 @@
 if exists("b:current_syntax")
   finish
   endif
+
+syntax case ignore
+
 " Action! Reserved Keywords
 syn keyword actionReservedKeywords AND ARRAY BYTE CARD CHAR DEFINE DO ELSE
 syn keyword actionReservedKeywords ELSEIF EXIT FI FOR FUNC IF INCLUDE INT
@@ -112,5 +115,27 @@ syn keyword actionCommands
 \ XIO
 \ ZERO
 
+" Action! Numbers
+syntax match actionNumber "\<\d\+\>"
+syntax match actionNumber "\$\x\+\>" " 'bug', but adding \< doesn't behave!
+syntax match actionNumber "%[01]\+\>"
+
+
+
+
+" Action! Operators
+syntax match actionOperator "\v\*"
+syntax match actionOperator "\v/"
+syntax match actionOperator "\v\+"
+syntax match actionOperator "\v-"
+syntax match actionOperator "\v\?"
+syntax match actionOperator "\v\*\="
+syntax match actionOperator "\v/\="
+syntax match actionOperator "\v\+\="
+syntax match actionOperator "\v-\="
+
+
 highlight default link actionReservedKeywords Keyword
 highlight default link actionCommands Keyword
+highlight link actionNumber Number
+highlight link actionOperator Operator

@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead *.act setfiletype act
+autocmd BufNewFile,BufRead *.act setfiletype action
