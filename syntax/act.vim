@@ -7,13 +7,13 @@ if exists("b:current_syntax")
   finish
   endif
 " Action! Reserved Keywords
-syn keyword actionReservedKeywords AND ARRAY BYTE CARD CHAR DEFINE DO ELSE
-syn keyword actionReservedKeywords ELSEIF EXIT FI FOR FUNC IF INCLUDE INT
-syn keyword actionReservedKeywords LSH MOD MODULE OD OR POINTER PROC
-syn keyword actionReservedKeywords RETURN RSH SET STEP THEN TO
-syn keyword actionReservedKeywords TYPE UNTIL WHILE XOR
+syntax keyword actionReservedKeywords AND ARRAY BYTE CARD CHAR DEFINE DO ELSE
+syntax keyword actionReservedKeywords ELSEIF EXIT FI FOR FUNC IF INCLUDE INT
+syntax keyword actionReservedKeywords LSH MOD MODULE OD OR POINTER PROC
+syntax keyword actionReservedKeywords RETURN RSH SET STEP THEN TO
+syntax keyword actionReservedKeywords TYPE UNTIL WHILE XOR
 " Action! Commands
-syn keyword actionCommands
+syntax keyword actionCommands
 \ ARRAY
 \ BREAK
 \ BYTE
@@ -112,5 +112,14 @@ syn keyword actionCommands
 \ XIO
 \ ZERO
 
-highlight default link actionReservedKeywords Keyword
+" Action numbers
+syntax match actionNumbers "\v<\d+>"
+syntax match actionNumbers "\v<\d+\.\d+>
+syntax match actionNumbers "\v<\d*\.?\d+([Ee]-?)?\d+>"
+syntax match actionNumbers "\v<0x\x+([Pp]-?)?\x+>
+syntax match actionNumbers "\v<0b[01]+>"
+syntax match actionNumbers "\v<0o\o+>
+
+highlight default link actionReservedKwords Keyword
 highlight default link actionCommands Keyword
+highlight default link actionNumbers Number
