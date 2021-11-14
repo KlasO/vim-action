@@ -14,4 +14,5 @@ syn keyword actionReservedKeywords RETURN RSH SET STEP THEN TO
 syn keyword actionReservedKeywords TYPE UNTIL WHILE XOR
 "TODO  Check if ; can/must be a keyword (as it is defined in ftplugin as
 "comment string) 
-syn keyword actionReservedKeywords + > [ - >= ] * < " / <= ' & $ ; % ^ ! @ = ( <> ) # .
+" syn keyword actionReservedKeywords + > [ - >= ] * < " / <= ' & $ ; % ^ ! @ = ( <> ) # .
+highlight default link actionReservedKeywords Keyword
