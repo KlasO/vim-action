@@ -2,7 +2,15 @@
 # deploy-vim-action.sh 
 # Simple script to copy the Vim syntax highlighting files to ~/.vim/*
 set -x
-cp $CODE_DIR/vim-action/ftdetect/* ~/.vim/ftdetect/
-cp $CODE_DIR/vim-action/ftplugin/* ~/.vim/ftplugin/
-cp $CODE_DIR/vim-action/syntax/* ~/.vim/syntax/
-cp $CODE_DIR/vim-action/indent/* ~/.vim/indent/
+if [ -d "~/.vim" ]
+then
+  cp $CODE_DIR/vim-action/ftdetect/* ~/.vim/ftdetect/ 
+  cp $CODE_DIR/vim-action/ftplugin/* ~/.vim/ftplugin/
+  cp $CODE_DIR/vim-action/syntax/* ~/.vim/syntax/
+  cp $CODE_DIR/vim-action/indent/* ~/.vim/indent/
+else
+  mkdir -p ~/.vim/ftdetect && cp $CODE_DIR/vim-action/ftdetect/* ~/.vim/ftdetect/  || echo "ERROR!"
+  mkdir -p ~/.vim/ftplugin && cp $CODE_DIR/vim-action/ftplugin/* ~/.vim/ftplugin/ || echo "ERROR!"
+  mkdir -p ~/.vim/syntax && cp $CODE_DIR/vim-action/syntax/* ~/.vim/syntax/ || echo "ERROR!"
+  mkdir -p ~/.vim/indent && cp $CODE_DIR/vim-action/indent/* ~/.vim/indent/ || echo "ERROR!"
+fi
