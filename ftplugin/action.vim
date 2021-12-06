@@ -5,3 +5,5 @@ setlocal commentstring=;\ %s
 "reserved keyword that are symbols
 setlocal tabstop=4
 setlocal softtabstop=4
+"Keybord mapping
+nnoremap <buffer> <localleader>c I;<esc>

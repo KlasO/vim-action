@@ -132,6 +132,6 @@ syntax match actionOperator "\v\+\="
 syntax match actionOperator "\v-\="
 
 highlight default link actionReservedKeywords Keyword
-highlight default link actionCommands Keyword
-highlight link actionNumber Number
+highlight default link actionCommands Number
+highlight link actionNumber Keyword
 highlight link actionOperator Operator
