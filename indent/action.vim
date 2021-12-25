@@ -9,14 +9,3 @@ if exists("b:did_indent")
     finish
   endif
  let b:did_indent = 1
-
-setlocal indentexpr=ActionIndent()
-
-function! ActionIndent()
-   let line = getline(v:lnum)
-   let previousNum = prevnonblank(v:lnum - 1)
-   let previous = getline(previousNum)
-   if previous =~ "DO" && previous !~ "OD" && line !~ "OD"
-     return indent(previousNum) + &tabstop
-   endif
- endfunction
