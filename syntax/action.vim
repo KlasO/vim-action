@@ -1,4 +1,5 @@
-" Vim syntax file " Language: Action! 
+" Vim syntax file 
+" Language: Action! 
 " Maintainer: Klas Olsson
 " Latest Revision: 13 November 2021
 " TODO validate the keyword statements; 
