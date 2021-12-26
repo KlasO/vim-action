@@ -24,12 +24,16 @@ syntax keyword actionCommands
 " Action! Comments
 syntax match actionComment ";.*$" 
 
+" Action! Variables
+syntax match actionVariable /\<\h\w*\>/
 " Action! Numbers
-"syntax match actionNumber "\d\+"       " Positive dec number
-syntax match actionNumber "\<\-*\d\+"     " Neg dec number
-"syntax match actionNumber "\$\x\+"     " Positive hex number
-"syntax match actionNumber "\-\$\x\+"   " Neg hex number
-"syntax match actionNumber "[-+]\d\+\.\d*"
+"syntax match actionNumber /$\x\+\>/     " Positive hex number
+"syntax match actionNumber /\-\?\$\x\+\>/   " Neg hex number
+syntax match actionNumber /\-\=$\x\+\>/   " Neg hex number
+"syntax match actionNumber /\-\=\d\+\>/
+syntax match actionNumber /\-\=\d\+\>/
+syntax match actionNumber /\-\=\d\+\.\d*\>/
+"syntax match actionNumber /\<\d\+\.\d*\>/
 
 " Action! Constants
 syntax match actionConstant "\'."        " Single char constant; any ATASCII char
@@ -38,17 +42,22 @@ syntax match actionConstant "\'."        " Single char constant; any ATASCII cha
 syntax match actionOperator '*'
 syntax match actionOperator '/'
 syntax match actionOperator '+'
-syntax match actionOperator '-'
+syntax match actionOperator '\-\(\d\|\x\|\$\)\@!'
 syntax match actionOperator '='
 syntax match actionOperator '=='
 syntax keyword actionOperator AND LSH MOD OR RSH XOR
 
 hi Keyword ctermfg=Yellow
 hi Constant ctermfg=Magenta 
-hi Operator ctermfg=LightRed
+hi Operator ctermfg=Blue
 hi Comment ctermfg=DarkBlue
+hi Identifier ctermfg=DarkGreen
 
 highlight link actionCommands Keyword
 highlight link actionNumber Constant
-highlight link actionOperator Operator
+highlight link actionOperator Operator  
 highlight link actionComment  Comment 
+highlight link actionVariable Identifier
+
+
+let b:current_syntax = "action"
