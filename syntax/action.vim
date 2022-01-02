@@ -3,11 +3,13 @@
 " Maintainer: Klas Olsson
 " Latest Revision: 13 November 2021
 " TODO validate the keyword statements; 
+" TODO add regions for DO - OD, IF - FI, WHILE, UNTIL
 if exists("b:current_syntax")
   finish
   endif
 
 syntax case ignore
+colorscheme torte
 
 " Action! Commands
 syntax keyword actionCommands
@@ -47,11 +49,11 @@ syntax match actionOperator '='
 syntax match actionOperator '=='
 syntax keyword actionOperator AND LSH MOD OR RSH XOR
 
-hi Keyword ctermfg=Yellow
-hi Constant ctermfg=Magenta 
-hi Operator ctermfg=Blue
-hi Comment ctermfg=DarkBlue
-hi Identifier ctermfg=DarkGreen
+" highlight Keyword ctermfg=Yellow
+" highlight Constant ctermfg=Magenta 
+" highlight Operator ctermfg=Blue
+" highlight Comment ctermfg=DarkBlue
+" highlight Identifier ctermfg=DarkGreen
 
 highlight link actionCommands Keyword
 highlight link actionNumber Constant
